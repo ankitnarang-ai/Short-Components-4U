@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+h1 {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #3f51b5;
+  }
+  
+  .demo-card {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+  
+    .kanban-section {
+      margin: 1rem 0;
+    }
+  
+    .demo-iframe {
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }

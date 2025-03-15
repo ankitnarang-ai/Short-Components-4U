@@ -1,0 +1,57 @@
+<div class="home-container">
+    <mat-card class="home-card">
+      <mat-card-header>
+        <mat-card-title>Short Components 4U presents - Angular Kanban</mat-card-title>
+        <mat-card-subtitle>A powerful, customizable Angular Kanban board library</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- Kanban Board Preview -->
+        <div class="kanban-preview">
+          <div class="column" style="--column-index: 0;">
+            <div class="header">To Do</div>
+            <div class="card">Implement drag and drop</div>
+            <div class="card">Add card editing</div>
+            <div class="card">Create documentation</div>
+          </div>
+          <div class="column" style="--column-index: 1;">
+            <div class="header">In Progress</div>
+            <div class="card">Design responsive layout</div>
+            <div class="card">Build column component</div>
+          </div>
+          <div class="column" style="--column-index: 2;">
+            <div class="header">Done</div>
+            <div class="card">Set up project structure</div>
+            <div class="card">Create board component</div>
+          </div>
+        </div>
+        
+        <!-- Features -->
+        <div class="features">
+          <div class="feature" style="--feature-index: 0;">
+            <mat-icon>drag_indicator</mat-icon>
+            <h3>Drag & Drop</h3>
+            <p>Intuitive drag and drop functionality between columns</p>
+          </div>
+          <div class="feature" style="--feature-index: 1;">
+            <mat-icon>palette</mat-icon>
+            <h3>Customizable</h3>
+            <p>Easily style to match your application theme</p>
+          </div>
+          <div class="feature" style="--feature-index: 2;">
+            <mat-icon>speed</mat-icon>
+            <h3>Lightweight</h3>
+            <p>Minimal dependencies for optimal performance</p>
+          </div>
+        </div>
+        
+        <div class="button-container">
+          <button mat-raised-button color="primary" routerLink="/documentation">
+            Documentation
+          </button>
+          <button mat-raised-button color="accent" routerLink="/live-demo">
+            Live Demo
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>

@@ -1,0 +1,17 @@
+<h1>Live Demo: Angular Kanban</h1>
+
+<mat-card class="demo-card">
+  <mat-card-header>
+    <mat-card-title>Interactive Kanban Board</mat-card-title>
+    <mat-card-subtitle>Drag and drop cards between columns</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <section class="kanban-section">
+      <lib-kanban-board
+        [board]="board"
+        (cardClick)="onCardClick($event)"
+        (cardMoved)="onCardMoved($event)"
+      ></lib-kanban-board>
+    </section>
+  </mat-card-content>
+</mat-card>

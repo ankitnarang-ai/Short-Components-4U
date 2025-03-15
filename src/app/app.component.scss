@@ -1,0 +1,22 @@
+/* Logo styling */
+.toolbar {
+    background-color: white;
+}
+.logo {
+    height: 80px; // Adjust the height as needed
+    margin-right: 1rem; // Add spacing between the logo and nav links
+  }
+  
+  /* Navigation styling */
+  .nav {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    background-color: white;
+  }
+  
+  /* Main content styling */
+  .main {
+    padding: 2rem;
+    background-color: white;
+  }

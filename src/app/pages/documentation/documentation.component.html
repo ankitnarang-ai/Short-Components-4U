@@ -1,0 +1,61 @@
+<div class="documentation-container">
+  <mat-card class="documentation-card">
+    <mat-card-header>
+      <mat-card-title>Angular Kanban Documentation</mat-card-title>
+      <mat-card-subtitle>Learn how to use the Angular Kanban component.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="tab-buttons">
+        @for (tab of tabs; track tab.id) {
+          <button
+            mat-raised-button
+            [class.active]="activeTab === tab.id"
+            (click)="setActiveTab(tab.id)"
+          >
+            {{ tab.label }}
+          </button>
+        }
+      </div>
+
+      <div class="tab-content">
+        @switch (activeTab) {
+          @case ('installation') {
+            <div>
+              <h2>Installation</h2>
+              <p>To use the Angular Kanban component, follow these steps:</p>
+              <ol>
+                <li>
+                  Install the library via npm:
+                  <pre><code>npm install angular-kanban</code></pre>
+                </li>
+                <li>
+                  Import the module in your Angular application:
+                  <pre><code>import {{ '{' }} KanbanBoardComponent, KanbanStateServicefrom {{ '}' }} 'angular-kanban';</code></pre>
+                </li>
+                <li>
+                  Add the component to your template:
+                  <pre><code>&lt;lib-kanban-board [board]="board" (cardClick)="onCardClick($event)" (cardMoved)="onCardMoved($event)"&gt;&lt;/lib-kanban-board&gt;</code></pre>
+                </li>
+              </ol>
+            </div>
+          }
+          @case ('usage') {
+            <div>
+              <h2>Usage Code</h2>
+              <p>Here’s an example of how to use the Angular Kanban component:</p>
+              <pre><code>{{ codeExample }}</code></pre>
+            </div>
+          }
+          @case ('demo') {
+            <div>
+              <h2>Live Demo</h2>
+              <p>Interact with the Kanban board below:</p>
+              <lib-kanban-board [board]="demoBoard" (cardClick)="onCardClick($event)"
+              (cardMoved)="onCardMoved($event)"></lib-kanban-board>
+            </div>
+          }
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
