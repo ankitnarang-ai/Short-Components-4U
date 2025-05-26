@@ -1,57 +1,234 @@
 <div class="home-container">
-    <mat-card class="home-card">
-      <mat-card-header>
-        <mat-card-title>Short Components 4U presents - Angular Kanban</mat-card-title>
-        <mat-card-subtitle>A powerful, customizable Angular Kanban board library</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <!-- Kanban Board Preview -->
-        <div class="kanban-preview">
-          <div class="column" style="--column-index: 0;">
-            <div class="header">To Do</div>
-            <div class="card">Implement drag and drop</div>
-            <div class="card">Add card editing</div>
-            <div class="card">Create documentation</div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="floating-particles"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <mat-icon>auto_awesome</mat-icon>
+        <span>Next Generation UI Components</span>
+      </div>
+      <h1 class="hero-title">
+        Angular Kanban
+        <span class="gradient-text">Board</span>
+      </h1>
+      <p class="hero-description">
+        Angular Kanban is a customizable Kanban board for Angular. Enjoy smooth drag-and-drop and a seamless
+        experience—perfect for modern task management.
+      </p>
+      <div class="hero-actions">
+        <a mat-raised-button routerLink="/demo" class="primary-btn">
+          <mat-icon>rocket_launch</mat-icon>
+          <span>Launch Demo</span>
+          <div class="btn-glow"></div>
+        </a>
+        <a mat-stroked-button routerLink="/documentation" class="secondary-btn">
+          <mat-icon>terminal</mat-icon>
+          <span>View Docs</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">200+</span>
+          <span class="stat-label">Downloads</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2 class="section-title">Powerful Features</h2>
+      <p class="section-subtitle">Designed for modern Angular applications</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card active">
+        <div class="feature-icon">
+          <mat-icon>drag_indicator</mat-icon>
+          <div class="icon-glow"></div>
+        </div>
+        <h3>Smart Drag & Drop</h3>
+        <p>Effortless drag-and-drop with intelligent snapping and real-time task reordering.</p>
+        <div class="feature-status available">Available</div>
+      </div>
+
+      <div class="feature-card active">
+        <div class="feature-icon">
+          <mat-icon>palette</mat-icon>
+          <div class="icon-glow"></div>
+        </div>
+        <h3>Live Theming</h3>
+        <p>Easy-to-customize themes with instant updates and full accessibility support.</p>
+        <div class="feature-status available">Available</div>
+      </div>
+
+      <div class="feature-card active">
+        <div class="feature-icon">
+          <mat-icon>speed</mat-icon>
+          <div class="icon-glow"></div>
+        </div>
+        <h3>Blazing Speed</h3>
+        <p>Ultra-fast rendering with virtual scrolling and optimized memory usage.</p>
+        <div class="feature-status available">Available</div>
+      </div>
+
+      <div class="feature-card coming-soon">
+        <div class="feature-icon">
+          <mat-icon>auto_awesome</mat-icon>
+          <div class="icon-glow"></div>
+        </div>
+        <h3>Task Automation</h3>
+        <p>Simplify workflows with smart suggestions and rule-based task actions.</p>
+        <div class="feature-status soon">Coming Soon</div>
+      </div>
+
+      <div class="feature-card coming-soon">
+        <div class="feature-icon">
+          <mat-icon>analytics</mat-icon>
+          <div class="icon-glow"></div>
+        </div>
+        <h3>Board Analytics</h3>
+        <p>Track productivity with interactive charts and actionable insights.</p>
+        <div class="feature-status soon">Coming Soon</div>
+      </div>
+
+      <div class="feature-card coming-soon">
+        <div class="feature-icon">
+          <mat-icon>cloud_sync</mat-icon>
+          <div class="icon-glow"></div>
+        </div>
+        <h3>Cloud Sync</h3>
+        <p>Work from anywhere with real-time sync, offline support, and conflict handling.</p>
+        <div class="feature-status soon">Coming Soon</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Demo Preview Section -->
+  <section class="demo-section">
+    <div class="section-header">
+      <h2 class="section-title">Interactive Preview</h2>
+      <p class="section-subtitle">Experience the power in action</p>
+    </div>
+
+    <div class="kanban-preview-container">
+
+      <div class="kanban-preview">
+        <div class="kanban-column todo">
+          <div class="column-header">
+            <h4>
+              <mat-icon>pending_actions</mat-icon>
+              To Do
+            </h4>
+            <span class="card-count">2</span>
           </div>
-          <div class="column" style="--column-index: 1;">
-            <div class="header">In Progress</div>
-            <div class="card">Design responsive layout</div>
-            <div class="card">Build column component</div>
+          <div class="kanban-card priority-high">
+            <div class="card-header">
+              <span class="card-title">Implement Neural Networks</span>
+              <div class="priority-indicator high"></div>
+            </div>
+            <p class="card-description">Integrate AI-powered task suggestions</p>
+            <div class="card-tags">
+              <span class="tag">AI</span>
+              <span class="tag">Backend</span>
+            </div>
           </div>
-          <div class="column" style="--column-index: 2;">
-            <div class="header">Done</div>
-            <div class="card">Set up project structure</div>
-            <div class="card">Create board component</div>
+          <div class="kanban-card">
+            <div class="card-header">
+              <span class="card-title">Design Quantum UI</span>
+              <div class="priority-indicator medium"></div>
+            </div>
+            <p class="card-description">Create next-gen user interface</p>
+            <div class="card-tags">
+              <span class="tag">Design</span>
+              <span class="tag">Frontend</span>
+            </div>
           </div>
         </div>
-        
-        <!-- Features -->
-        <div class="features">
-          <div class="feature" style="--feature-index: 0;">
-            <mat-icon>drag_indicator</mat-icon>
-            <h3>Drag & Drop</h3>
-            <p>Intuitive drag and drop functionality between columns</p>
+
+        <div class="kanban-column progress">
+          <div class="column-header">
+            <h4>
+              <mat-icon>sync</mat-icon>
+              In Progress
+            </h4>
+            <span class="card-count">1</span>
           </div>
-          <div class="feature" style="--feature-index: 1;">
-            <mat-icon>palette</mat-icon>
-            <h3>Customizable</h3>
-            <p>Easily style to match your application theme</p>
-          </div>
-          <div class="feature" style="--feature-index: 2;">
-            <mat-icon>speed</mat-icon>
-            <h3>Lightweight</h3>
-            <p>Minimal dependencies for optimal performance</p>
+          <div class="kanban-card">
+            <div class="card-header">
+              <span class="card-title">Optimize Performance</span>
+              <div class="priority-indicator high"></div>
+            </div>
+            <p class="card-description">Sub-millisecond rendering optimization</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 65%"></div>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Performance</span>
+            </div>
           </div>
         </div>
-        
-        <div class="button-container">
-          <button mat-raised-button color="primary" routerLink="/documentation">
-            Documentation
-          </button>
-          <button mat-raised-button color="accent" routerLink="/live-demo">
-            Live Demo
-          </button>
+
+        <div class="kanban-column done">
+          <div class="column-header">
+            <h4>
+              <mat-icon>check_circle</mat-icon>
+              Completed
+            </h4>
+            <span class="card-count">1</span>
+          </div>
+          <div class="kanban-card completed">
+            <div class="card-header">
+              <span class="card-title">Setup Quantum Core</span>
+              <div class="priority-indicator low"></div>
+            </div>
+            <p class="card-description">Initialize project architecture</p>
+            <div class="card-tags">
+              <span class="tag">Setup</span>
+            </div>
+          </div>
         </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon Components -->
+  <section class="coming-soon-section">
+    <div class="section-header">
+      <h2 class="section-title">Next Generation Components</h2>
+      <p class="section-subtitle">Revolutionary UI components launching soon</p>
+    </div>
+
+    <div class="coming-soon-grid">
+      <div class="coming-soon-card">
+        <div class="card-glow"></div>
+        <mat-icon class="soon-icon">calendar_today</mat-icon>
+        <h3>Angular Calendar</h3>
+        <p>Fully customizable calendar with drag scheduling and smart reminders</p>
+        <div class="launch-date">2025</div>
+      </div>
+
+      <div class="coming-soon-card">
+        <div class="card-glow"></div>
+        <mat-icon class="soon-icon">schedule</mat-icon>
+        <h3>Angular Time Picker</h3>
+        <p>Intuitive time selector with timezone support and gesture control</p>
+        <div class="launch-date">2025</div>
+      </div>
+
+      <div class="coming-soon-card">
+        <div class="card-glow"></div>
+        <mat-icon class="soon-icon">tune</mat-icon>
+        <h3>Angular Flow</h3>
+        <p>Visual workflow builder with conditional logic and reusable nodes</p>
+        <div class="launch-date">2025</div>
+      </div>
+    </div>
+  </section>
+
+</div>

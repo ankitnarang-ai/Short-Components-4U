@@ -1,61 +1,270 @@
-<div class="documentation-container">
-  <mat-card class="documentation-card">
-    <mat-card-header>
-      <mat-card-title>Angular Kanban Documentation</mat-card-title>
-      <mat-card-subtitle>Learn how to use the Angular Kanban component.</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="tab-buttons">
-        @for (tab of tabs; track tab.id) {
-          <button
-            mat-raised-button
-            [class.active]="activeTab === tab.id"
-            (click)="setActiveTab(tab.id)"
-          >
-            {{ tab.label }}
-          </button>
-        }
-      </div>
+<div class="docs-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <mat-icon class="hero-icon">description</mat-icon>
+        Documentation
+      </h1>
+      <p class="hero-subtitle">
+        Master the Angular Kanban component with our comprehensive guide
+      </p>
+      <div class="hero-glow"></div>
+    </div>
+  </div>
 
-      <div class="tab-content">
-        @switch (activeTab) {
-          @case ('installation') {
-            <div>
-              <h2>Installation</h2>
-              <p>To use the Angular Kanban component, follow these steps:</p>
-              <ol>
-                <li>
-                  Install the library via npm:
-                  <pre><code>npm install angular-kanban</code></pre>
-                </li>
-                <li>
-                  Import the module in your Angular application:
-                  <pre><code>import {{ '{' }} KanbanBoardComponent, KanbanStateServicefrom {{ '}' }} 'angular-kanban';</code></pre>
-                </li>
-                <li>
-                  Add the component to your template:
-                  <pre><code>&lt;lib-kanban-board [board]="board" (cardClick)="onCardClick($event)" (cardMoved)="onCardMoved($event)"&gt;&lt;/lib-kanban-board&gt;</code></pre>
-                </li>
-              </ol>
+  <div class="docs-content">
+    <mat-card class="futuristic-card">
+      <mat-card-header class="card-header">
+        <div class="header-content">
+          <div class="header-icon">
+            <mat-icon>integration_instructions</mat-icon>
+          </div>
+          <div class="header-text">
+            <h2>Angular Kanban Documentation</h2>
+            <p>Learn how to integrate and customize the Angular Kanban component in your projects</p>
+          </div>
+        </div>
+        <div class="header-glow"></div>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-tab-group class="futuristic-tabs" animationDuration="300ms">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon>download</mat-icon>
+              <span>Installation</span>
+            </ng-template>
+
+            <div class="tab-content">
+              <div class="section-header">
+                <h3>
+                  <mat-icon>rocket_launch</mat-icon>
+                  Getting Started
+                </h3>
+                <p>Follow these steps to install and configure the Angular Kanban component</p>
+              </div>
+
+              <div class="installation-steps">
+                <div class="step-card">
+                  <div class="step-number">01</div>
+                  <div class="step-content">
+                    <h4>
+                      <mat-icon>terminal</mat-icon>
+                      Install via NPM
+                    </h4>
+                    <p>Add the Angular Kanban library to your project dependencies</p>
+                    <div class="code-block">
+                      <div class="code-header">
+                        <span class="code-language">bash</span>
+                        <!-- <button mat-icon-button class="copy-btn" title="Copy to clipboard">
+                          <mat-icon>content_copy</mat-icon>
+                        </button> -->
+                      </div>
+                      <pre><code class="language-bash">npm install angular-kanban</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-card">
+                  <div class="step-number">02</div>
+                  <div class="step-content">
+                    <h4>
+                      <mat-icon>code</mat-icon>
+                      Import Component
+                    </h4>
+                    <p>Import the KanbanBoardComponent in your Angular module or standalone component</p>
+                    <div class="code-block">
+                      <div class="code-header">
+                        <span class="code-language">typescript</span>
+                        <!-- <button mat-icon-button class="copy-btn" title="Copy to clipboard">
+                          <mat-icon>content_copy</mat-icon>
+                        </button> -->
+                      </div>
+                      <pre><code class="language-typescript">import {{ '{' }} KanbanBoardComponent {{ '}' }} from 'angular-kanban';</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-card">
+                  <div class="step-number">03</div>
+                  <div class="step-content">
+                    <h4>
+                      <mat-icon>web</mat-icon>
+                      Add to Template
+                    </h4>
+                    <p>Use the kanban-board component in your Angular template</p>
+                    <div class="code-block">
+                      <div class="code-header">
+                        <span class="code-language">html</span>
+                        <!-- <button mat-icon-button class="copy-btn" title="Copy to clipboard">
+                          <mat-icon>content_copy</mat-icon>
+                        </button> -->
+                      </div>
+                      <pre><code class="language-html">&lt;lib-kanban-board 
+  [board]="board" 
+  (cardClick)="onCardClick($event)" 
+  (cardMoved)="onCardMoved($event)"&gt;
+&lt;/lib-kanban-board&gt;
+</code></pre>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          }
-          @case ('usage') {
-            <div>
-              <h2>Usage Code</h2>
-              <p>Here’s an example of how to use the Angular Kanban component:</p>
-              <pre><code>{{ codeExample }}</code></pre>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon>code</mat-icon>
+              <span>Usage</span>
+            </ng-template>
+
+            <div class="tab-content">
+              <div class="section-header">
+                <h3>
+                  <mat-icon>play_arrow</mat-icon>
+                  Implementation Example
+                </h3>
+                <p>Complete example showing how to implement the Angular Kanban component</p>
+              </div>
+
+              <div class="usage-section">
+                <div class="code-block large">
+                  <div class="code-header">
+                    <span class="code-language">typescript</span>
+                    <div class="code-actions">
+                      <!-- <button mat-icon-button class="copy-btn" title="Copy to clipboard">
+                        <mat-icon>content_copy</mat-icon>
+                      </button>
+                      <button mat-icon-button class="expand-btn" title="Expand">
+                        <mat-icon>fullscreen</mat-icon>
+                      </button> -->
+                    </div>
+                  </div>
+                  <pre><code class="language-typescript">{{ codeExample }}</code></pre>
+                </div>
+
+                <div class="features-grid">
+                  <div class="feature-card">
+                    <mat-icon>drag_indicator</mat-icon>
+                    <h4>Drag & Drop</h4>
+                    <p>Built-in drag and drop functionality between columns</p>
+                  </div>
+                  <div class="feature-card">
+                    <mat-icon>tune</mat-icon>
+                    <h4>Customizable</h4>
+                    <p>Custom card templates and styling options</p>
+                  </div>
+                  <div class="feature-card">
+                    <mat-icon>event</mat-icon>
+                    <h4>Event Handling</h4>
+                    <p>Rich event system for card interactions</p>
+                  </div>
+                  <div class="feature-card">
+                    <mat-icon>responsive</mat-icon>
+                    <h4>Responsive</h4>
+                    <p>Mobile-friendly responsive design</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          }
-          @case ('demo') {
-            <div>
-              <h2>Live Demo</h2>
-              <p>Interact with the Kanban board below:</p>
-              <lib-kanban-board [board]="demoBoard" (cardClick)="onCardClick($event)"
-              (cardMoved)="onCardMoved($event)"></lib-kanban-board>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon>api</mat-icon>
+              <span>API Reference</span>
+            </ng-template>
+
+            <div class="tab-content">
+              <div class="section-header">
+                <h3>
+                  <mat-icon>settings</mat-icon>
+                  Component API
+                </h3>
+                <p>Complete reference for all component inputs, outputs, and methods</p>
+              </div>
+
+              <div class="api-section">
+                <div class="api-category">
+                  <h4>
+                    <mat-icon>input</mat-icon>
+                    Input Properties
+                  </h4>
+                  <div class="api-table-container">
+                    <table class="futuristic-table">
+                      <thead>
+                        <tr>
+                          <th>Property</th>
+                          <th>Type</th>
+                          <th>Required</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code>board</code></td>
+                          <td><span class="type-badge">KanbanBoard</span></td>
+                          <td><span class="required-badge">Yes</span></td>
+                          <td>The complete board data structure containing columns and cards</td>
+                        </tr>
+                        <tr>
+                          <td><code>cardTemplate</code></td>
+                          <td><span class="type-badge">TemplateRef</span></td>
+                          <td><span class="optional-badge">No</span></td>
+                          <td>Custom template reference for rendering individual cards</td>
+                        </tr>
+                        <tr>
+                          <td><code>disabled</code></td>
+                          <td><span class="type-badge">boolean</span></td>
+                          <td><span class="optional-badge">No</span></td>
+                          <td>Disables drag and drop functionality when true</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="api-category">
+                  <h4>
+                    <mat-icon>output</mat-icon>
+                    Output Events
+                  </h4>
+                  <div class="api-table-container">
+                    <table class="futuristic-table">
+                      <thead>
+                        <tr>
+                          <th>Event</th>
+                          <th>Payload Type</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code>cardMoved</code></td>
+                          <td><span class="type-badge">CardMoveEvent</span></td>
+                          <td>Emitted when a card is moved between columns or within a column</td>
+                        </tr>
+                        <tr>
+                          <td><code>cardClicked</code></td>
+                          <td><span class="type-badge">KanbanCard</span></td>
+                          <td>Emitted when a card is clicked or tapped</td>
+                        </tr>
+                        <tr>
+                          <td><code>columnChanged</code></td>
+                          <td><span class="type-badge">ColumnEvent</span></td>
+                          <td>Emitted when column properties are modified</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
-          }
-        }
-      </div>
-    </mat-card-content>
-  </mat-card>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

@@ -26,6 +26,7 @@
     "@tailwindcss/postcss": "^4.0.14",
     "angular-kanban": "^0.0.3",
     "express": "^4.18.2",
+    "ngx-highlightjs": "^14.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

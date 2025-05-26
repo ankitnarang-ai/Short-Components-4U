@@ -1,15 +1,68 @@
-<mat-toolbar class="toolbar">
-  <!-- Logo -->
-  <img [src]="logo" alt="Logo" class="logo" />
-  
-  <!-- Navigation Links -->
-  <nav class="nav">
-    <a routerLink="/" mat-button>Home</a>
-    <a routerLink="/documentation" mat-button>Documentation</a>
-    <a routerLink="/live-demo" mat-button>Live Demo</a>
-  </nav>
-  </mat-toolbar>
-
-  <main class="main">
-    <router-outlet></router-outlet>
-  </main>
+    <div class="app-container">
+      <mat-toolbar class="futuristic-toolbar">
+        <div class="toolbar-content">
+          <a routerLink="/" class="logo-link">
+            <div class="brand-text">
+              <span class="brand-name">Short Components 4U</span>
+            </div>
+          </a>
+          
+          <div class="nav-links">
+            <a mat-button routerLink="/" class="nav-btn">
+              <mat-icon>home</mat-icon>
+              <span>Home</span>
+            </a>
+            <a mat-button routerLink="/documentation" class="nav-btn">
+              <mat-icon>description</mat-icon>
+              <span>Docs</span>
+            </a>
+            <a mat-button routerLink="/demo" class="nav-btn demo-btn">
+              <mat-icon>play_circle</mat-icon>
+              <span>Live Demo</span>
+            </a>
+            <button mat-button [matMenuTriggerFor]="moreMenu" class="nav-btn">
+              <mat-icon>apps</mat-icon>
+              <span>More</span>
+              <mat-icon class="dropdown-icon">expand_more</mat-icon>
+            </button>
+            <mat-menu #moreMenu="matMenu" class="futuristic-menu">
+              <button mat-menu-item routerLink="/about">
+                <mat-icon>info</mat-icon>
+                <span>About</span>
+              </button>
+              <button mat-menu-item routerLink="/contact">
+                <mat-icon>contact_mail</mat-icon>
+                <span>Contact</span>
+              </button>
+              <button mat-menu-item routerLink="/privacy">
+                <mat-icon>security</mat-icon>
+                <span>Privacy</span>
+              </button>
+              <button mat-menu-item routerLink="/terms">
+                <mat-icon>gavel</mat-icon>
+                <span>Terms</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+        <div class="toolbar-glow"></div>
+      </mat-toolbar>
+      
+      <main class="main-content">
+        <router-outlet></router-outlet>
+      </main>
+      
+      <footer class="futuristic-footer">
+        <div class="footer-content">
+          <div class="footer-left">
+            <p class="copyright">&copy; {{year}} All rights reserved.</p>
+          </div>
+          <div class="footer-links">
+            <a routerLink="/privacy" class="footer-link">Privacy Policy</a>
+            <a routerLink="/terms" class="footer-link">Terms & Conditions</a>
+            <a routerLink="/contact" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+        <div class="footer-grid"></div>
+      </footer>
+    </div>
