@@ -16,4 +16,7 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'terms', component: TermsComponent },
+  { path: 'login', loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent) },
+  { path: 'signup', loadComponent: () => import('./pages/signup/signup.component').then(m => m.SignupComponent) },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

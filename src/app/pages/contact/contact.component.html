@@ -1,1 +1,103 @@
-<p>contact works!</p>
+<div class="contact-container">
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <mat-icon class="hero-icon">contact_mail</mat-icon>
+            Contact Us
+          </h1>
+          <p class="hero-subtitle">
+            Have questions or feedback? We'd love to hear from you!
+          </p>
+        </div>
+        <div class="hero-glow"></div>
+      </div>
+
+      <div class="content-section">
+        <mat-card class="futuristic-card">
+          <mat-card-content>
+            <div class="contact-methods">
+              <div class="contact-form">
+                <h3 class="section-title">
+                  <mat-icon>send</mat-icon>
+                  Send a Message
+                </h3>
+                
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                  <mat-form-field>
+                    <mat-label>Your Name</mat-label>
+                    <input matInput formControlName="name">
+                    @if (contactForm.get('name')?.hasError('required')) {
+                      <mat-error>Name is required</mat-error>
+                    }
+                  </mat-form-field>
+                  
+                  <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" type="email">
+                    @if (contactForm.get('email')?.hasError('required')) {
+                      <mat-error>Email is required</mat-error>
+                    }
+                    @if (contactForm.get('email')?.hasError('email')) {
+                      <mat-error>Please enter a valid email</mat-error>
+                    }
+                  </mat-form-field>
+                  
+                  <mat-form-field>
+                    <mat-label>Message</mat-label>
+                    <textarea matInput formControlName="message" rows="5"></textarea>
+                    @if (contactForm.get('message')?.hasError('required')) {
+                      <mat-error>Message is required</mat-error>
+                    }
+                  </mat-form-field>
+                  
+                  <button 
+                    mat-raised-button 
+                    color="primary" 
+                    type="submit"
+                    [disabled]="!contactForm.valid"
+                    class="submit-btn">
+                    <mat-icon>send</mat-icon>
+                    Send Message
+                  </button>
+                </form>
+              </div>
+              
+              <div class="contact-info">
+                <h3 class="section-title">
+                  <mat-icon>alternate_email</mat-icon>
+                  Other Ways to Reach Us
+                </h3>
+                
+                <div class="info-card">
+                  <mat-icon aria-hidden="true">email</mat-icon>
+                  <div>
+                    <h4>Email</h4>
+                    <p>
+                      <a href="mailto:ankitnarangwork&#64;gmail.com">ankitnarangwork&#64;gmail.com</a>
+                    </p>
+                  </div>
+                </div>
+
+
+                
+                <div class="info-card">
+                  <mat-icon>forum</mat-icon>
+                  <div>
+                    <h4>Community</h4>
+                    <p>Join our Discord server</p>
+                  </div>
+                </div>
+                
+                <div class="info-card">
+                  <mat-icon>bug_report</mat-icon>
+                  <div>
+                    <h4>Report Issues</h4>
+                    <p>GitHub Issues</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>

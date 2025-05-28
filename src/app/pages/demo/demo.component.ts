@@ -9,7 +9,7 @@ import { KanbanBoardComponent, KanbanStateService } from 'angular-kanban'; // Im
   standalone: true,
   imports: [KanbanBoardComponent, MatCardModule, MatButtonModule, MatIconModule],
   templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.scss'],
+  styleUrl: './demo.component.scss'
 })
 export class DemoComponent {
   board: any = {

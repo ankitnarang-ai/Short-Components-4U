@@ -1,17 +1,34 @@
-<h1>Live Demo: Angular Kanban</h1>
+<div class="demo-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <mat-icon class="hero-icon">dashboard</mat-icon>
+        Live Demo: Angular Kanban
+      </h1>
+      <p class="hero-subtitle">
+        Interactive Kanban Board - Drag and drop cards between columns
+      </p>
+    </div>
+    <div class="hero-glow"></div>
+  </div>
 
-<mat-card class="demo-card">
-  <mat-card-header>
-    <mat-card-title>Interactive Kanban Board</mat-card-title>
-    <mat-card-subtitle>Drag and drop cards between columns</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <section class="kanban-section">
-      <lib-kanban-board
-        [board]="board"
-        (cardClick)="onCardClick($event)"
-        (cardMoved)="onCardMoved($event)"
-      ></lib-kanban-board>
-    </section>
-  </mat-card-content>
-</mat-card>
+  <div class="content-section">
+    <mat-card class="futuristic-card">
+      <mat-card-header class="card-header">
+        <mat-card-title class="card-title">
+          <mat-icon>view_kanban</mat-icon>
+          Interactive Kanban Board
+        </mat-card-title>
+        <mat-card-subtitle class="card-subtitle">
+          Drag and drop cards between columns to manage your workflow
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <section class="kanban-section">
+          <lib-kanban-board [board]="board" (cardClick)="onCardClick($event)"
+            (cardMoved)="onCardMoved($event)"></lib-kanban-board>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

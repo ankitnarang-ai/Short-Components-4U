@@ -1,0 +1,136 @@
+ <div class="signup-container">
+      <div class="background-pattern"></div>
+      <div class="signup-content">
+        
+        <!-- Left Panel - Branding -->
+        <div class="branding-panel">
+          <div class="branding-content">
+            <div class="logo-section">
+              <mat-icon class="logo-icon">dashboard</mat-icon>
+              <h1 class="brand-title">Kanban Pro</h1>
+            </div>
+            <h2 class="welcome-title">Join the Future of Project Management</h2>
+            <p class="welcome-subtitle">
+              Create powerful Kanban boards with our advanced Angular component. 
+              Streamline your workflow and boost productivity.
+            </p>
+            <div class="features-grid">
+              <div class="feature-item" *ngFor="let feature of features">
+                <mat-icon>{{ feature.icon }}</mat-icon>
+                <span>{{ feature.text }}</span>
+              </div>
+            </div>
+            <div class="decorative-glow"></div>
+          </div>
+        </div>
+
+        <!-- Right Panel - Signup Form -->
+        <div class="form-panel">
+          <mat-card class="signup-card">
+            <mat-card-content>
+              <div class="form-header">
+                <h2>Create Account</h2>
+                <p>Start your journey with Kanban Pro</p>
+              </div>
+
+              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+                
+                <!-- Name Fields -->
+                <div class="name-row">
+                  <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" required>
+                    <mat-icon matPrefix>person</mat-icon>
+                    <mat-error *ngIf="signupForm.get('firstName')?.hasError('required')">
+                      First name is required
+                    </mat-error>
+                  </mat-form-field>
+                  
+                  <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" required>
+                    <mat-icon matPrefix>person_outline</mat-icon>
+                    <mat-error *ngIf="signupForm.get('lastName')?.hasError('required')">
+                      Last name is required
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+
+                <!-- Email -->
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Email Address</mat-label>
+                  <input matInput type="email" formControlName="email" required>
+                  <mat-icon matPrefix>email</mat-icon>
+                  <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+                    Email is required
+                  </mat-error>
+                  <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
+                    Please enter a valid email
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Password -->
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Password</mat-label>
+                  <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+                  <mat-icon matPrefix>lock</mat-icon>
+                  <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+                    <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+                    Password is required
+                  </mat-error>
+                  <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
+                    Password must be at least 8 characters
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Confirm Password -->
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmPassword" required>
+                  <mat-icon matPrefix>lock_outline</mat-icon>
+                  <button mat-icon-button matSuffix type="button" (click)="hideConfirmPassword = !hideConfirmPassword">
+                    <mat-icon>{{ hideConfirmPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
+                    Please confirm your password
+                  </mat-error>
+                  <mat-error *ngIf="signupForm.hasError('passwordMismatch') && signupForm.get('confirmPassword')?.touched">
+                    Passwords do not match
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Terms Checkbox -->
+                <div class="terms-section">
+                  <mat-checkbox formControlName="agreeToTerms" class="terms-checkbox">
+                    I agree to the 
+                    <a routerLink="/terms" class="terms-link">Terms & Conditions</a> 
+                    and 
+                    <a routerLink="/privacy" class="terms-link">Privacy Policy</a>
+                  </mat-checkbox>
+                  <mat-error *ngIf="signupForm.get('agreeToTerms')?.hasError('required') && signupForm.get('agreeToTerms')?.touched">
+                    You must agree to the terms to continue
+                  </mat-error>
+                </div>
+
+                <!-- Submit Button -->
+                <button mat-raised-button type="submit" class="signup-btn" [disabled]="signupForm.invalid || isLoading">
+                  <mat-icon *ngIf="!isLoading">rocket_launch</mat-icon>
+                  <mat-icon *ngIf="isLoading" class="loading-icon">refresh</mat-icon>
+                  {{ isLoading ? 'Creating Account...' : 'Create Account' }}
+                </button>
+
+                <!-- Login Link -->
+                <div class="login-link-section">
+                  <p>Already have an account? 
+                    <a routerLink="/login" class="login-link">Sign in here</a>
+                  </p>
+                </div>
+
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>

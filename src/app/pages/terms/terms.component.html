@@ -1,1 +1,79 @@
-<p>terms works!</p>
+ <div class="terms-container">
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <mat-icon class="hero-icon">gavel</mat-icon>
+            Terms & Conditions
+          </h1>
+          <p class="hero-subtitle">
+            Please read these terms carefully before using our Angular Kanban component
+          </p>
+          <div class="last-updated">
+            <mat-icon>schedule</mat-icon>
+            <span>Last updated: {{ today | date:'fullDate' }}</span>
+          </div>
+          <div class="hero-glow"></div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <mat-card class="futuristic-card">
+          <mat-card-content>
+            <div class="terms-intro">
+              <div class="intro-card">
+                <mat-icon>info_outline</mat-icon>
+                <div class="intro-content">
+                  <h3>Agreement to Terms</h3>
+                  <p>By accessing and using our Angular Kanban component, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="terms-sections">
+              <div class="section-card" *ngFor="let section of termsSections; let i = index">
+                <div class="section-header">
+                  <div class="section-number">{{ i + 1 }}</div>
+                  <div class="section-title">
+                    <mat-icon>{{ section.icon }}</mat-icon>
+                    <h3>{{ section.title }}</h3>
+                  </div>
+                </div>
+                <div class="section-content">
+                  <p *ngFor="let paragraph of section.content">{{ paragraph }}</p>
+                  <div class="subsections" *ngIf="section.subsections">
+                    <div class="subsection" *ngFor="let subsection of section.subsections">
+                      <h4>{{ subsection.title }}</h4>
+                      <p>{{ subsection.content }}</p>
+                    </div>
+                  </div>
+                  <ul class="term-list" *ngIf="section.list">
+                    <li *ngFor="let item of section.list">{{ item }}</li>
+                  </ul>
+                </div>
+                <div class="section-glow"></div>
+              </div>
+            </div>
+
+            <div class="acceptance-section">
+              <div class="acceptance-card">
+                <div class="acceptance-header">
+                  <mat-icon>verified</mat-icon>
+                  <h3>Acceptance of Terms</h3>
+                </div>
+                <p>By using our Angular Kanban component, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.</p>
+                <div class="acceptance-actions">
+                  <button mat-raised-button class="accept-btn">
+                    <mat-icon>check_circle</mat-icon>
+                    I Accept These Terms
+                  </button>
+                  <button mat-stroked-button class="contact-btn">
+                    <mat-icon>email</mat-icon>
+                    Have Questions?
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>

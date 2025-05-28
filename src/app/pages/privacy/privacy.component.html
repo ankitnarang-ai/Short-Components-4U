@@ -1,1 +1,60 @@
-<p>privacy works!</p>
+  <div class="privacy-container">
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <mat-icon class="hero-icon">security</mat-icon>
+            Privacy Policy
+          </h1>
+          <p class="hero-subtitle">
+            Your privacy matters. Learn how we protect your Kanban board data.
+          </p>
+          <div class="last-updated">
+            <mat-icon>schedule</mat-icon>
+            <span>Last updated: {{ today | date:'fullDate' }}</span>
+          </div>
+          <div class="hero-glow"></div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <mat-card class="futuristic-card">
+          <mat-card-content>
+            <div class="policy-sections">
+              <div class="section-card" *ngFor="let section of policySections; let i = index">
+                <div class="section-header">
+                  <div class="section-number">{{ i + 1 }}</div>
+                  <div class="section-title">
+                    <mat-icon>{{ section.icon }}</mat-icon>
+                    <h3>{{ section.title }}</h3>
+                  </div>
+                </div>
+                <div class="section-content">
+                  <p *ngFor="let paragraph of section.content">{{ paragraph }}</p>
+                  <div class="subsections" *ngIf="section.subsections">
+                    <div class="subsection" *ngFor="let subsection of section.subsections">
+                      <h4>{{ subsection.title }}</h4>
+                      <p>{{ subsection.content }}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="section-glow"></div>
+              </div>
+            </div>
+
+            <div class="contact-section">
+              <div class="contact-card">
+                <div class="contact-header">
+                  <mat-icon>help_outline</mat-icon>
+                  <h3>Questions About Privacy?</h3>
+                </div>
+                <p>Need clarification about how we handle your Kanban data? We're here to help.</p>
+                <button mat-raised-button class="contact-btn">
+                  <mat-icon>email</mat-icon>
+                  Contact Privacy Team
+                </button>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
