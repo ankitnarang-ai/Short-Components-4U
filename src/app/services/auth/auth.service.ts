@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/authentication/public'; 
+
+  private apiUrl = environment.BASE_URL; 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) {
@@ -30,7 +32,7 @@ export class AuthService {
     email: string;
     password: string;
   }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/signup`, userData, { 
+    return this.http.post(`${this.apiUrl}/authentication/public/signup`, userData, { 
       withCredentials: true
     }).pipe(
       tap(() => {
@@ -41,7 +43,7 @@ export class AuthService {
   }
 
   login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, credentials, { 
+    return this.http.post(`${this.apiUrl}/authentication/public/login`, credentials, { 
       withCredentials: true
     }).pipe(
       tap(() => {

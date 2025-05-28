@@ -80,8 +80,8 @@ onSubmit() {
         error: (error) => {
           this.isLoading = false;
           // Show error message to user
+          // Todo: Add modal later
           console.error('Signup failed:', error);
-          // You might want to show this error to the user
         }
       });
   } else {

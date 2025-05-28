@@ -17,7 +17,6 @@ import { HighlightModule } from 'ngx-highlightjs';
     MatButtonModule,
     MatIconModule,
     CommonModule,
-    KanbanBoardComponent,
     HighlightModule
   ],
   templateUrl: './documentation.component.html',

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -8,8 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -30,10 +31,14 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private cookieService = inject(CookieService);
 
-  constructor(private authService: AuthService) {};
+  constructor(private authService: AuthService) {}
 
   hidePassword = true;
+  isLoading = false; // Add loading state
   
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -42,12 +47,14 @@ export class LoginComponent {
   });
 
   onLogin() {
-    if (this.loginForm.valid) {
+    if (this.loginForm.valid && !this.isLoading) {
+      this.isLoading = true;
 
-      const { email, password } = this.loginForm.value;
+      const { email, password, rememberMe } = this.loginForm.value;
 
       if (!email || !password) {
         alert('Please enter both email and password.');
+        this.isLoading = false;
         return;
       }
       
@@ -55,29 +62,26 @@ export class LoginComponent {
      
       this.authService.login(credentials).subscribe({
         next: (response) => {
-          console.log('Login successful', response);
-          // Handle successful login, e.g., redirect to dashboard
-          alert('Login successful!');
+          
+          // Store the token in cookie
+          if (response.token) {
+            // Set cookie expiration based on rememberMe checkbox
+            const expires = rememberMe ? 30 : 1; // 30 days if remember me, 1 day otherwise
+            this.cookieService.set('token', response.token, expires);
+          }
+          
+          // Get the return URL from query params or default to dashboard
+          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+          
+          // Navigate to protected area
+          this.router.navigate([returnUrl]);
+          
+          this.isLoading = false;
+        },
+        error: (error) => { 
+          this.isLoading = false;
         }
-        , error: (error) => { 
-          console.error('Login failed', error);
-          // Handle login error, e.g., show an error message
-          alert('Login failed. Please check your credentials.');
-        }
-      })
-      console.log('Login form submitted', this.loginForm.value);
-      // Here you would typically send the login data to your backend
-      alert('Login successful!');
+      });
     }
-  }
-
-  loginWithGoogle() {
-    console.log('Login with Google');
-    // Implement Google OAuth login
-  }
-
-  loginWithGithub() {
-    console.log('Login with GitHub');
-    // Implement GitHub OAuth login
   }
 }
